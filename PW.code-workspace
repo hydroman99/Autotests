@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "PW",
+			"path": "."
+		},
+		{
+			"name": "src",
+			"path": "../Autotest/src"
+		}
+	],
+	"settings": {
+		"files.autoSave": "onFocusChange"
+	}
+}
