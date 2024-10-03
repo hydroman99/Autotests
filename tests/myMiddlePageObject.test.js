@@ -18,7 +18,7 @@ test.describe('Page Object ',() => {
     await registerFixture.globalFeedTab.postSomeComment();
 })
   test('Пользователь может написать новую статью', async ({ registerFixture }) => {
-    AABOBA
-    
+    await registerFixture.mainPage.newArticle();
+    await registerFixture.newArticlePage.createArticle('I am Title', 'aa', 'aa', 'aa');
 })
 })
