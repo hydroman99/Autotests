@@ -18,6 +18,6 @@ test.describe('Page Object ',() => {
     await registerFixture.globalFeedTab.postSomeComment();
 })
   test('Пользователь может написать новую статью', async ({ registerFixture }) => {
-    .
+    
 })
 })
