@@ -3,7 +3,7 @@ import { BasePage } from "./base.page";
 export class GlobalFeedTab extends BasePage {
     constructor(page){
         super(page);
-        this.firstPost = this.page.locator('.article-preview').first();
+        this.firstPost = this.page.getByRole('link', { name: 'Read more...'}).first();
         this.commentField = this.page.getByPlaceholder('Write a comment...');
         this.postCommentButton = this.page.getByRole('button', { name: 'Post Comment' });
     }

@@ -9,6 +9,7 @@ constructor(page) {
     this.mainPageLoginButton = this.page.getByRole('link', { name: 'Login' });
     this.globalFeed = this.page.getByRole('button', { name: 'Global Feed' });
     this.newArticalButton = this.page.getByRole('link', { name: 'New Article' });
+    this.logo = this.page
 }
 
 async register () {
