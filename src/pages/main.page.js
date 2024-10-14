@@ -3,13 +3,14 @@ import { BasePage } from './base.page'
 export class MainPage extends BasePage  {
 constructor(page) {
     super(page);
+    this.logo = this.page.locator('.navbar-brand');
     this.menuButton = this.page.locator('.dropdown-toggle');
     this.settingsButton = this.page.getByRole('link', { name: 'Settings' });
     this.signupButton = this.page.getByRole('link', { name: 'Sign up'});
     this.mainPageLoginButton = this.page.getByRole('link', { name: 'Login' });
     this.globalFeed = this.page.getByRole('button', { name: 'Global Feed' });
     this.newArticalButton = this.page.getByRole('link', { name: 'New Article' });
-    this.logo = this.page
+    this.homeButton = this.page.getByRole('link', { name: 'Home' })
 }
 
 async register () {
@@ -27,5 +28,8 @@ async goToGlobalPage () {
 }
 async newArticle () {
     await this.newArticalButton.click();
+}
+async goToHome() {
+    await this.homeButton.click()
 }
 }
