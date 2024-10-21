@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { test } from '../src/helpers/fixtures/fixture'
 import { convertHexToRGB } from '../src/helpers/builders/cssConvertors'
-import { checkColor } from '../src/helpers/functions/checkColor'
+import { checkColor, checkFont } from '../src/helpers/functions/cssChecker'
 
 
 test.describe('Page Object ',() => {
@@ -31,4 +31,10 @@ test.describe('Page Object ',() => {
     const logo = await registerFixture.mainPage.logo
     await checkColor(logo, 'color', rgbColors)
   })
+  test('Проверка шрифтов', async ({registerFixture}) => {
+    let font = '16 px / 24px source sans pro, sans-serif'
+    const text = await registerFixture.mainPage.homeButton
+    await checkFont(text, font)
+  }
+)
 })
