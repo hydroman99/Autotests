@@ -1,4 +1,4 @@
-import { ChallengerService, ChallengesService } from './index';
+import { ChallengerService, ChallengesService, TodosService, HeartbeatService } from './index';
 
 export class ApiClient {
     constructor (options) {
@@ -11,20 +11,21 @@ export class ApiClient {
         }
         this.challenger = new ChallengerService(mergeOptions);
         this.challenges = new ChallengesService(mergeOptions);
+        this.todos = new TodosService(mergeOptions);
+        this.heartbeat = new HeartbeatService(mergeOptions);
     };
     
+    //метод, который выдергивает авторизационный токен из запроса challenger
+    //и подставляет ко всем остальным запросам
     static async loginAs(){
         const client = this.unauthorized();    
-        //Авторизация
-        //todo
         const { headers } = await client.challenger.post();
-        //todo r?.body
         const token = headers["x-challenger"]
 
 
         return new ApiClient({token});
     }
-    
+    //метод, если хотим дернуть запрос без авторизации
     static unauthorized(){
         return new ApiClient();
     }
