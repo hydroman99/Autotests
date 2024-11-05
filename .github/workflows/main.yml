@@ -1,0 +1,23 @@
+name: autotests
+#когда запускать тесты
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+jobs:
+#название джобы
+  test: 
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          #имя не обязательно
+      - name: install PW
+        run: npx playwright install --with-deps
+      - name: Run pw test
+        run: npx run test 
