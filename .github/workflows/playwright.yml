@@ -42,7 +42,7 @@ jobs:
         ref: gh-pages
         path: gh-pages
     #Формируем из allure-results отчет allure-reports
-    - uses: asimple-elf/allure-report-action@master
+    - uses: simple-elf/allure-report-action@master
       if: always()
       id: allure-reports
       with:
